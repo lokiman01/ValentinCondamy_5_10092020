@@ -35,13 +35,13 @@ async function displayCamera(camera) {
 
     let cameraContentbox = document.createElement("div");
     let cameraContent = document.createElement("article");
-    let cameraDescription = document.createElement("div");
+    let cameratext = document.createElement("div");
     let cameraPicturebox = document.createElement("div");
     let cameraPicture = document.createElement("img");
     let cameraName = document.createElement("h2")
     let cameraPrice = document.createElement("p")
-    let cameraActionBox = document.createElement("div");
-    let cameraAction = document.createElement("a")
+    let cameralinkBox = document.createElement("div");
+    let cameralink = document.createElement("a")
 
     //nestings:
 
@@ -49,30 +49,30 @@ async function displayCamera(camera) {
     cameraContentbox.appendChild(cameraContent);
     cameraContent.appendChild(cameraPicturebox);
     cameraPicturebox.appendChild(cameraPicture);
-    cameraContent.appendChild(cameraDescription);
-    cameraDescription.appendChild(cameraName);
-    cameraDescription.appendChild(cameraPrice);
-    cameraDescription.appendChild(cameraActionBox);
-    cameraActionBox.appendChild(cameraAction)
+    cameraContent.appendChild(cameratext);
+    cameratext.appendChild(cameraName);
+    cameratext.appendChild(cameraPrice);
+    cameratext.appendChild(cameralinkBox);
+    cameralinkBox.appendChild(cameralink)
 
     // HTML tags:
 
     cameraContentbox.setAttribute("class", "camera_contentbox ");
     cameraContent.setAttribute("class", "camera_content");
-    cameraDescription.setAttribute("class", "camera_description");
+    cameratext.setAttribute("class", "camera_text");
     cameraPicturebox.setAttribute("class", "camera_Picturebox");
     cameraPicture.setAttribute("alt", "Photo de la caméra");
     cameraName.setAttribute("class", "camera_name");
-    cameraPrice.setAttribute("class", "cameraPrice");
-    cameraActionBox.setAttribute("class", "camera_actionbox");
-    cameraAction.setAttribute("href", "product.html?id=" + camera._id);
-    cameraAction.setAttribute("class", "camera_action")
+    cameraPrice.setAttribute("class", "camera_Price");
+    cameralinkBox.setAttribute("class", "camera_linkbox");
+    cameralink.setAttribute("href", "product.html?id=" + camera._id);
+    cameralink.setAttribute("class", "camera_link")
 
    
     // content of tags:
     cameraPicture.src = camera.imageUrl;
     cameraName.textContent = camera.name;
-    cameraPrice.textContent = camera.price / 100 + " euros";
-    cameraAction.textContent = "voir la fiche du produit";
+    cameraPrice.textContent = camera.price / 100 + " €";
+    cameralink.textContent = "voir la fiche produit";
 
 }
