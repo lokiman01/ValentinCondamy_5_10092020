@@ -6,7 +6,6 @@ async function main() {
 }
 
 
-
 function getCamera(id) {
 
     return fetch(`http://localhost:3000/api/cameras/${id}`)
@@ -21,28 +20,51 @@ function getCamera(id) {
 
         .then(function (camera) {
             return camera
-            
-        })
-      
-}
 
+        })
+}
 
 async function displayCamerasDetails() {
 
-    const urlParams = window.location.search
+    const urlParams = window.location.search;
+    console.log(urlParams);
 
-    const searchParams = new URLSearchParams(urlParams)
+    const searchParams = new URLSearchParams(urlParams);
+    console.log(searchParams);
 
-    const productId = searchParams.get("id")
+    const productId = searchParams.get('id');
+    console.log(productId);
 
     const cameraDetail = await getCamera(productId);
     console.log(cameraDetail);
 
+
+    document.getElementById('cameraProduct').innerHTML += `
+        <div class="cameraProductBox">
+            <img src=${cameraDetail.imageUrl}>
+        <div/>
+        <div class="cameraDescriptionBox">
+        <h2 class="camera">${cameraDetail.name}</h2>
+        <p>${cameraDetail.description}</p>
+        <p>${cameraDetail.price / 100 + " €"}</p>
+
+        <label for="option">Lentille(s):</label>
+        <select name="option" id="chosenLense">
+            <option disabled value=""lentille</option>
+        </select>
+        </div>`
+    cameraDetail.lenses.forEach(camera => {
+        let chosenOption = document.createElement("Option");
+        document
+            .getElementById("chosenLense")
+            .appendChild(chosenOption).innerHTML = camera;
+    });
 }
+
 
 async function displayCamera(camera) {
 
-    const detailCamera = document.getElementById('detail-camera');
+    const listCamera = document.getElementById('list-camera');
 
     let cameraContentbox = document.createElement("div");
     let cameraContent = document.createElement("article");
@@ -79,7 +101,7 @@ async function displayCamera(camera) {
     cameralink.setAttribute("href", "product.html?id=" + camera._id);
     cameralink.setAttribute("class", "camera_link")
 
-   
+
     // content of tags:
     cameraPicture.src = camera.imageUrl;
     cameraName.textContent = camera.name;
