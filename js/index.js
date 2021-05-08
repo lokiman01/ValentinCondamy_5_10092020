@@ -10,6 +10,7 @@ async function main() {
         console.log(element)
         displayCamera(element)
     });
+    
 }
 
 
@@ -69,10 +70,11 @@ async function displayCamera(camera) {
     cameralink.setAttribute("class", "camera_link")
 
    
-    // content of tags:
+    // content of API:
     cameraPicture.src = camera.imageUrl;
     cameraName.textContent = camera.name;
     cameraPrice.textContent = camera.price / 100 + " €";
     cameralink.textContent = "voir la fiche produit";
+
 
 }

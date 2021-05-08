@@ -11,7 +11,6 @@ function getCamera(id) {
     return fetch(`http://localhost:3000/api/cameras/${id}`)
 
         .then(function (httpbodyResponse) {
-            console.log(httpbodyResponse)
             if (httpbodyResponse.status === 404) {
                 throw new Error;
             }
@@ -38,25 +37,41 @@ async function displayCamerasDetails() {
     const cameraDetail = await getCamera(productId);
     console.log(cameraDetail);
 
-
     document.getElementById('cameraProduct').innerHTML += `
         <div class="cameraProductBox">
             <img src=${cameraDetail.imageUrl}>
         <div/>
         <div class="cameraDescriptionBox">
-        <h2 class="camera">${cameraDetail.name}</h2>
+        <h2 id="camera"class="camera">${cameraDetail.name}</h2>
         <p>${cameraDetail.description}</p>
         <p>${cameraDetail.price / 100 + " €"}</p>
-
         <label for="Lense">Lentille(s):</label>
         <select name="Lense" id="chosenLense">
             <option disabled value=""lentille</option>
         </select>
+        <button class="buttonPanier" id="panierButton" onclick="location.href='panier.html'" type="button"> Ajouter au panier
+        </button>
         </div>`
+
     cameraDetail.lenses.forEach(camera => {
         let chosenOption = document.createElement("option");
         document
             .getElementById("chosenLense")
             .appendChild(chosenOption).innerHTML = camera;
     });
+
+    const addCamera = document.getElementById("chosenLense")
+    addCamera.addEventListener("click",async function (){
+        const data = {
+            cameraName:document.getElementById("camera"),
+            cameraLenses:document.getElementById("option").value,
+        }
+    })
+
+    let data_json = JSON.stringify(data)
+    console.log(data);
+    localStorage.setItem("objet", data_json);
+
+
 }
+

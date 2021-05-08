@@ -46,7 +46,33 @@ img {
     font-family: "Roboto", sans-serif;
     text-decoration: none;
 }
+.cameraDescriptionBox{
+    position: relative;
+}
 
-@media all and (min-width: 300px) {
-    
+.buttonPanier {
+    padding: 10px;
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(2, 168, 29);
+
+}
+.QuantityButtonBox{
+    display: flex;
+    flex-wrap: wrap;
+    height: 15px;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+.QuantityLabel {
+    box-sizing: border-box;
+}
+
+@media all and (max-width: 355px) {
+    .buttonPanier {
+        bottom: 30px;  
+    }
 }
