@@ -46,9 +46,7 @@ async function displayCamerasDetails() {
         <p>${cameraDetail.description}</p>
         <p>${cameraDetail.price / 100 + " €"}</p>
         <label for="Lense">Lentille(s):</label>
-        <select name="Lense" id="chosenLense">
-            <option disabled value=""lentille</option>
-        </select>
+        <select name="Lense" id="chosenLense"></select>
         <button class="buttonPanier" id="panierButton" onclick="location.href='panier.html'" type="button"> Ajouter au panier
         </button>
         </div>`
@@ -61,16 +59,16 @@ async function displayCamerasDetails() {
     });
 
     const addCamera = document.getElementById("chosenLense")
-    addCamera.addEventListener("click",async function (){
+    addCamera.addEventListener("click", async function () {
         const data = {
-            cameraName:document.getElementById("camera"),
-            cameraLenses:document.getElementById("option").value,
+            cameraDetailName: document.getElementById("camera"),
+            cameraDetailLenses: document.getElementById("camera").value,
         }
-    })
 
-    let data_json = JSON.stringify(data)
-    console.log(data);
-    localStorage.setItem("objet", data_json);
+        let data_json = JSON.stringify(data)
+        console.log(data);
+        localStorage.setItem("objet", data_json);
+    })
 
 
 }
