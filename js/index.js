@@ -17,6 +17,8 @@ async function main() {
 
 
 
+
+
 function getCameras() {
 
     return fetch("http://localhost:3000/api/cameras")

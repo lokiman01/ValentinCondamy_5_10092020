@@ -44,9 +44,11 @@ async function displayCamerasDetails() {
         <div class="cameraDescriptionBox">
         <h2 id="camera"class="camera">${cameraDetail.name}</h2>
         <p>${cameraDetail.description}</p>
-        <p>${cameraDetail.price / 100 + " €"}</p>
+        <p id="cameraPrice">${cameraDetail.price / 100 + " €"}</p>
         <label for="Lense">Lentille(s):</label>
         <select name="Lense" id="chosenLense"></select>
+        <select name="quantity" id="chosenQuantity"></select>
+
         <button class="buttonPanier" id="panierButton" onclick="location.href='panier.html'" type="button"> Ajouter au panier
         </button>
         </div>`
@@ -58,16 +60,25 @@ async function displayCamerasDetails() {
             .appendChild(chosenOption).innerHTML = camera;
     });
 
-    const addCamera = document.getElementById("chosenLense")
+    // cameraDetail.quantity.forEach(camera => {
+    //     let saveQuantity = document.createElement("option");
+    //     documents
+    //         .getElementById("chosenQuantity")
+    //         .appendChild(saveQuantity).innerHTML = camera;
+    // });
+
+    const addCamera = document.getElementById("panierButton",)
     addCamera.addEventListener("click", async function () {
+
         const data = {
-            cameraDetailName: document.getElementById("chosenLense").value,
-            cameraDetailLenses: document.getElementById("camera").value,
+            Lenses: document.getElementById("chosenLense").value,
+            Price: cameraDetail.price,
+            Name: cameraDetail.name,
         }
 
-        let data_json = JSON.stringify(data)
+        let dataJson = JSON.stringify(data)
         console.log(data);
-        localStorage.setItem("objetLense", data_json);
+        localStorage.setItem("panier",dataJson);
     })
 
 
