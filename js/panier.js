@@ -18,14 +18,12 @@ function main() {
     var pannierStorage = [];
 
     pannierStorage.push(addArticle)
-    console.log(panierStorage)
+    
 
     let panierStorageJSON = JSON.stringify(pannierStorage)
     console.table(pannierStorage)
     localStorage.setItem("pannierTotal",pannierStorage)
 
 
-    panierStorage = document.createElement("table");
-    document
-     .getElementById("displayPanier").innerHTML;
+   ;
 }
