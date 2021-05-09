@@ -61,13 +61,13 @@ async function displayCamerasDetails() {
     const addCamera = document.getElementById("chosenLense")
     addCamera.addEventListener("click", async function () {
         const data = {
-            cameraDetailName: document.getElementById("camera"),
+            cameraDetailName: document.getElementById("chosenLense").value,
             cameraDetailLenses: document.getElementById("camera").value,
         }
 
         let data_json = JSON.stringify(data)
         console.log(data);
-        localStorage.setItem("objet", data_json);
+        localStorage.setItem("objetLense", data_json);
     })
 
 
