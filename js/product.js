@@ -47,14 +47,22 @@ async function displayCamerasDetails() {
         <p id="cameraPrice">${cameraDetail.price / 100 + " €"}</p>
         <label for="Lense">Lentille(s):</label>
         <select name="Lense" id="chosenLense"></select>
-        <select name="quantity" id="chosenQuantity"></select>
-
-        <button class="buttonPanier" id="panierButton" type="button"> Ajouter au panier
+        <button class="buttonPanier" id="panierButton" onclick="location.href='panier.html'" type="button"> Ajouter au panier
         </button>
-        </div>`
+        <label for="tentacles">Qté:</label>
 
+        <input type="number" id="qteButton" name="" min="1" max="10">
+
+        </div>`
     cameraDetail.lenses.forEach(camera => {
         let chosenOption = document.createElement("option");
+        document
+            .getElementById("chosenLense")
+            .appendChild(chosenOption).innerHTML = camera;
+    });
+
+    cameraDetail.lenses.forEach(camera => {
+        let chosenOption = document.createElement("input");
         document
             .getElementById("chosenLense")
             .appendChild(chosenOption).innerHTML = camera;
@@ -84,14 +92,14 @@ async function displayCamerasDetails() {
             price: cameraDetail.price,
             name: cameraDetail.name,
             id: productId,
-
+            quantity: document.getElementById("qteButton").value,
         }
         panierStorage.push(data)
 
         let dataJson = JSON.stringify(panierStorage)
         console.log(data);
         localStorage.setItem("panier",dataJson);
-        
+
     })
 
 
