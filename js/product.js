@@ -61,20 +61,7 @@ async function displayCamerasDetails() {
             .appendChild(chosenOption).innerHTML = camera;
     });
 
-    cameraDetail.lenses.forEach(camera => {
-        let chosenOption = document.createElement("input");
-        document
-            .getElementById("chosenLense")
-            .appendChild(chosenOption).innerHTML = camera;
-    });
-
-    // cameraDetail.quantity.forEach(camera => {
-    //     let saveQuantity = document.createElement("option");
-    //     documents
-    //         .getElementById("chosenQuantity")
-    //         .appendChild(saveQuantity).innerHTML = camera;
-    // });
-
+    
     const addCamera = document.getElementById("panierButton")
     addCamera.addEventListener("click", function () {
         let panierStorage = localStorage.getItem("panier");
@@ -91,13 +78,11 @@ async function displayCamerasDetails() {
             lenses: document.getElementById("chosenLense").value,
             price: cameraDetail.price,
             name: cameraDetail.name,
-            id: productId,
             quantity: document.getElementById("qteButton").value,
         }
         panierStorage.push(data)
 
         let dataJson = JSON.stringify(panierStorage)
-        console.log(data);
         localStorage.setItem("panier",dataJson);
 
     })
