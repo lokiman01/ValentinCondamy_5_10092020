@@ -31,7 +31,6 @@ function getCameras() {
         
 }
 
-
 async function displayCamera(camera) {
 
     const listCamera = document.getElementById('list-camera');

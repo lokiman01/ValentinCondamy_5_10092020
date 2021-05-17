@@ -24,18 +24,13 @@ function getCamera(id) {
 }
 
 async function displayCamerasDetails() {
-
     const urlParams = window.location.search;
-    console.log(urlParams);
 
     const searchParams = new URLSearchParams(urlParams);
-    console.log(searchParams);
 
     const productId = searchParams.get('id');
-    console.log(productId);
 
     const cameraDetail = await getCamera(productId);
-    console.log(cameraDetail);
 
     document.getElementById('cameraProduct').innerHTML += `
         <div class="cameraProductBox">
@@ -50,9 +45,7 @@ async function displayCamerasDetails() {
         <button class="buttonPanier" id="panierButton" onclick="location.href='panier.html'" type="button"> Ajouter au panier
         </button>
         <label for="tentacles">Qté:</label>
-
-        <input type="number" id="qteButton" name="" min="1" max="10">
-
+        <input type="number" id="qteButton" name="" min="1" max="10" value="1">
         </div>`
     cameraDetail.lenses.forEach(camera => {
         let chosenOption = document.createElement("option");
@@ -60,20 +53,15 @@ async function displayCamerasDetails() {
             .getElementById("chosenLense")
             .appendChild(chosenOption).innerHTML = camera;
     });
-
-    
     const addCamera = document.getElementById("panierButton")
     addCamera.addEventListener("click", function () {
-        let panierStorage = localStorage.getItem("panier");
-
+        let panierStorage = localStorage.getItem("basket");
         if (panierStorage) {
             panierStorage = JSON.parse(panierStorage);
         }
         else {
             panierStorage = [];
         }
-
-
         const data = {
             lenses: document.getElementById("chosenLense").value,
             price: cameraDetail.price,
@@ -81,12 +69,8 @@ async function displayCamerasDetails() {
             quantity: document.getElementById("qteButton").value,
         }
         panierStorage.push(data)
-
         let dataJson = JSON.stringify(panierStorage)
-        localStorage.setItem("panier",dataJson);
-
+        localStorage.setItem("basket",dataJson);
     })
-
-
 }
 
