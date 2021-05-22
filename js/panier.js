@@ -8,7 +8,7 @@ function start() {
     // Réforme de l'objet avec .parse
     let basketArray = JSON.parse(basket);
     // lien HTML
-    let body = document.getElementsByTagName("body")[0];
+    let table = document.getElementById("table");
     // création d'un tableau "<table>" 
     let tbl = document.createElement("table");
     // création d'un <tbody> afin de regrouper les éléments <tr> afin de forme le corps du t 
@@ -74,10 +74,13 @@ function start() {
             const indextodelet = basketArray.findIndex((product) => product.id_ == row.dataset.id_)
             basketArray.splice(indextodelet, 1)
 
+
             tbl.deleteRow(indextodelet);
             let dataJson_ = JSON.stringify(basketArray)
             console.log(basketArray)
             localStorage.setItem("basket", dataJson_);
+            window.refresh(tbl);
+
 
         })
 
@@ -95,10 +98,36 @@ function start() {
 
     //  <tbody> dans => <table>
     tbl.appendChild(tblBody);
-    //  <table> dans => <body>
-    body.appendChild(tbl);
+    //  <table> dans => <table>
+    table.appendChild(tbl);
     // un peu de css
     tbl.setAttribute("border", "1");
+
+
+    let formData = document.querySelector("form");
+
+    formData.addEventListener("submit", getForm);
+
+    function getForm(e) {
+        e.preventDefault();
+        let contact = {
+            firstName: document.getElementById("firstName").value,
+            lastName: document.getElementById("lastName").value,
+            city: document.getElementById("firstName").value,
+            address: document.getElementById("address").value,
+            email: document.getElementById("email").value,
+        }
+        console.log(contact);
+
+    }
+
+
+
+
+
+
+
+
 
 }
 

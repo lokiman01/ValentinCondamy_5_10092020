@@ -15,6 +15,45 @@
     text-decoration: none;
 }
 
-.cellButton {
-    padding: 15px;
+
+
+#table{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.form {
+
+    width: 300px;
+    padding: 1em;
+    border: 1px solid black;
+    border-radius: 1em;
+    margin: auto;
+}
+
+.label {
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+}
+
+.textaera {
+    font: 1em sans-serif;
+    width: 300px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+#submitbox {
+    display: flex;
+    justify-content: center;
+}
+
+#submit{
+    margin-top:10px;
 }
