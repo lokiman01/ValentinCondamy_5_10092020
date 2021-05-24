@@ -1,6 +1,29 @@
-.body {
+body{
+    margin: auto;
+    justify-content: center;
     align-items: center;
     font-family: "Roboto", sans-serif;
+    align-items: center;
+}
+
+.titleCtnr{
+    background-color: #F3E9F1;
+    position: relative;
+}
+
+.logo{
+    cursor: pointer;
+    width: 200px;
+    padding-left: 20px;
+}
+
+.cartIcon{
+    cursor: pointer;
+    transform: scale(3.0);
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    font-color: black;
 }
 
 #list-camera{
@@ -8,23 +31,10 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    
 }
 
 
-.titlebox {
-    text-align: center;
-    margin-bottom: 0px;
-    background-color: #e2dede;
-    box-shadow: 0px 5px 5px lightgrey;
-}
-  
-.title { 
-    width: 100%;
-    text-decoration: none;
-    color: black;
-    font-size: 3rem;
-    font-family: "Roboto", sans-serif;
-}
 
 .camera_contentbox {
     padding: 1rem;
@@ -35,12 +45,13 @@
 .camera_content{
     padding: 1rem;
     border-radius: 15px;
-    box-shadow: inset 0 5px 6px -4px lightgrey;
-    background-color: #e2dede;
+    background-color: #F3E9F1;
     box-shadow: 0px 5px 5px lightgrey;
+
+
 }
 
-img {
+.pictures {
     width: 100%;
     height: 100%;
     object-fit: cover;

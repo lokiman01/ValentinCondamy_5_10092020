@@ -1,3 +1,15 @@
+body {
+  margin: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Roboto", sans-serif;
+  align-items: center;
+}
+
 .titlebox {
   text-decoration: none;
   text-align: center;
@@ -7,13 +19,67 @@
           box-shadow: 0px 5px 5px lightgrey;
 }
 
-.title {
-  width: 100%;
-  text-decoration: none;
-  color: black;
-  font-size: 3rem;
-  font-family: "Roboto", sans-serif;
-  text-decoration: none;
+.titleCtnr {
+  background-color: #F3E9F1;
+  position: relative;
+}
+
+.titleTexte {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+  font-size: 30px;
+  padding-top: 15px;
+  padding-bot: 5px;
+}
+
+.logo {
+  cursor: pointer;
+  width: 200px;
+  padding-left: 20px;
+}
+
+.cartIcon {
+  cursor: pointer;
+  -webkit-transform: scale(3);
+          transform: scale(3);
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  font-color: black;
+}
+
+table {
+  background-color: #F3E9F1;
+  padding: 20px;
+  font-size: 24px;
+  -webkit-box-shadow: 0px 5px 5px lightgrey;
+          box-shadow: 0px 5px 5px lightgrey;
+}
+
+td {
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: white;
+}
+
+.totalrow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #table {
@@ -28,11 +94,20 @@
 }
 
 .form {
-  width: 300px;
+  font-size: 24px;
+  width: 500px;
   padding: 1em;
   border: 1px solid black;
-  border-radius: 1em;
   margin: auto;
+  background-color: #F3E9F1;
+  margin-bottom: 30px;
+  -webkit-box-shadow: 0px 5px 5px lightgrey;
+          box-shadow: 0px 5px 5px lightgrey;
+}
+
+.cellButton {
+  cursor: pointer;
+  padding: 13px;
 }
 
 .label {
@@ -41,9 +116,13 @@
   text-align: right;
 }
 
+.titleTexte {
+  margin: auto;
+}
+
 .textaera {
   font: 1em sans-serif;
-  width: 300px;
+  width: 480px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border: 1px solid black;
@@ -68,6 +147,16 @@
 }
 
 #submit {
+  font-size: 24px;
   margin-top: 10px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #4ae24a;
+  color: white;
+  border-radius: 5px;
+  -webkit-box-shadow: 5px 5px 5px lightgrey;
+          box-shadow: 5px 5px 5px lightgrey;
+  border: 1px solid black;
 }
 /*# sourceMappingURL=panier.css.map */

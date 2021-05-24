@@ -64,6 +64,7 @@ async function displayCamera(camera) {
     cameratext.setAttribute("class", "camera_text");
     cameraPicturebox.setAttribute("class", "camera_Picturebox");
     cameraPicture.setAttribute("alt", "Photo de la caméra");
+    cameraPicture.setAttribute("class", "pictures");
     cameraName.setAttribute("class", "camera_name");
     cameraPrice.setAttribute("class", "camera_Price");
     cameralinkBox.setAttribute("class", "camera_linkbox");

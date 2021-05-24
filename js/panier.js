@@ -50,7 +50,6 @@ function start() {
         let cellButtonTexte = document.createTextNode('X');
         cellButton.setAttribute("class", "cellButton");
 
-
         let pocket = element.quantity * (element.price / 100);
         total += pocket;
 
@@ -74,23 +73,19 @@ function start() {
             const indextodelet = basketArray.findIndex((product) => product.id_ == row.dataset.id_)
             basketArray.splice(indextodelet, 1)
 
-
             tbl.deleteRow(indextodelet);
             let dataJson_ = JSON.stringify(basketArray)
             console.log(basketArray)
             localStorage.setItem("basket", dataJson_);
             window.refresh(tbl);
 
-
         })
-
     }
 
-
     let totalRow = document.createElement("tr");
-
     let cellTotal = document.createElement("td");
     let cellTotalTexte = document.createTextNode("Total: " + total + " €");
+    cellTotal.setAttribute("class", "cellTotal");
 
     cellTotal.appendChild(cellTotalTexte);
     totalRow.appendChild(cellTotal)
@@ -103,12 +98,11 @@ function start() {
     // un peu de css
     tbl.setAttribute("border", "1");
 
-
     let formData = document.querySelector("form");
 
     formData.addEventListener("submit", getForm);
 
-    function getForm(e) {
+    async function getForm(e) {
         e.preventDefault();
         let contact = {
             firstName: document.getElementById("firstName").value,
@@ -117,17 +111,48 @@ function start() {
             address: document.getElementById("address").value,
             email: document.getElementById("email").value,
         }
-        console.log(contact);
 
+        let products = getProductsId()
+
+        const bodyorder = { contact: contact, products: products }
+
+        const resolved = await sendOrder(bodyorder)
+        window.location.href = "confirmation.html?orderid=" + resolved.orderId
     }
 
+    function getProductsId() {
+        const output = [];
+        basketArray.forEach(element => {
+            output.push(element._id)
+        });
+        return output
+    }
 
+    function sendOrder(order) {
+        const postInit = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(order)
 
+        }
 
+        return fetch(`http://localhost:3000/api/cameras/order`, postInit)
 
+            .then(function (httpbodyResponse) {
+                if (httpbodyResponse.status === 404) {
+                    throw new Error;
+                }
+                return httpbodyResponse.json()
+            })
 
+            .then(function (resolved) {
+                return resolved
 
+            })
+            .catch(function (error) {
+                console.log(error)
 
-
+            })
+    }
 }
 

@@ -34,7 +34,7 @@ async function displayCamerasDetails() {
 
     document.getElementById('cameraProduct').innerHTML += `
         <div class="cameraProductBox">
-            <img src=${cameraDetail.imageUrl}>
+            <img class="picture" src=${cameraDetail.imageUrl}>
         <div/>
         <div class="cameraDescriptionBox">
         <h2 id="camera"class="camera">${cameraDetail.name}</h2>
@@ -67,6 +67,7 @@ async function displayCamerasDetails() {
             price: cameraDetail.price,
             name: cameraDetail.name,
             quantity: document.getElementById("qteButton").value,
+            _id: cameraDetail._id,
         }
         panierStorage.push(data)
         let dataJson = JSON.stringify(panierStorage)
