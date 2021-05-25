@@ -8,6 +8,11 @@ function start() {
     // Réforme de l'objet avec .parse
     let basketArray = JSON.parse(basket);
     // lien HTML
+    if (!basketArray || basketArray.length == 0 ) {
+        document.querySelector("#formCtnr").style.display = "none"
+
+    }
+
     let table = document.getElementById("table");
     // création d'un tableau "<table>" 
     let tbl = document.createElement("table");
@@ -70,14 +75,27 @@ function start() {
         tblBody.appendChild(row);
 
         cellButton.addEventListener("click", function () {
+            
             const indextodelet = basketArray.findIndex((product) => product.id_ == row.dataset.id_)
+            const priceDell = basketArray[indextodelet].price * basketArray[indextodelet].quantity / 100;
+            console.log(total, priceDell)
+            total -= priceDell
+
+            if (total == 0 ){
+                document.querySelector("#formCtnr").style.display = "none"
+                
+            }
+
+            cellTotal.innerHTML = "Total: " + total + " €";
+
             basketArray.splice(indextodelet, 1)
 
             tbl.deleteRow(indextodelet);
             let dataJson_ = JSON.stringify(basketArray)
             console.log(basketArray)
             localStorage.setItem("basket", dataJson_);
-            window.refresh(tbl);
+            
+            
 
         })
     }
