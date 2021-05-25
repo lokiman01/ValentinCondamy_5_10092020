@@ -7,7 +7,6 @@ async function main() {
     const listCamera = await getCameras()
     
     listCamera.forEach(element => {
-        console.log(element)
         displayCamera(element)
     });
     

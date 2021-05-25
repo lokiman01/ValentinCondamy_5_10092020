@@ -1,9 +1,8 @@
 body{
-    margin: auto;
+    
     justify-content: center;
     align-items: center;
     font-family: "Roboto", sans-serif;
-    align-items: center;
 }
 
 .titleCtnr{
@@ -31,12 +30,14 @@ body{
     align-items: center;
     justify-content: center;
 }
-
-.confirmationSpan{
-    font-size: 24px;
-    border: 1px solid;
+.confirmationBox {
     padding: 20px;
-    margin-top: 50px;
-    box-shadow: 0px 5px 5px lightgrey;
+    
+    font-size: 24px;  
+}
+
+.pOrderId {
+    border: 2px solid black;
+    padding: 20px;
     background-color: #F3E9F1;
 }

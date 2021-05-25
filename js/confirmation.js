@@ -1,15 +1,18 @@
 start()
-function start(){
-   let basket = localStorage.getItem("basket");
-   // Réforme de l'objet avec .parse
-   let basketArray = JSON.parse(basket);
-
-   let confirmationSpan = document.getElementById("confirmationSpan");
-   let p = document.createElement("p");
-   let pTexte = document.createTextNode(basket._id);
-   console.log(pTexte)
+function start() {
+   const urlParams = window.location.search;
+   const searchParams = new URLSearchParams(urlParams);
+   const orderId = searchParams.get('orderId');
+     
+   let span = document.getElementById('confirmationBox')
+   let p = document.createElement("div");
+   let pTexte = document.createTextNode('FÉLICITATION ! N° DE COMMANDE'+' "'+orderId+'" ');
 
    p.appendChild(pTexte);
-   confirmationSpan.appendChild(p);
+   span.appendChild(p);
+   p.setAttribute("class", "pOrderId");
    
+   console.log(orderId); 
+
 }
+

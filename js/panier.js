@@ -91,11 +91,10 @@ function start() {
     totalRow.appendChild(cellTotal)
     tblBody.appendChild(totalRow);
 
-    //  <tbody> dans => <table>
     tbl.appendChild(tblBody);
-    //  <table> dans => <table>
+
     table.appendChild(tbl);
-    // un peu de css
+
     tbl.setAttribute("border", "1");
 
     let formData = document.querySelector("form");
@@ -117,7 +116,7 @@ function start() {
         const bodyorder = { contact: contact, products: products }
 
         const resolved = await sendOrder(bodyorder)
-        window.location.href = "confirmation.html?orderid=" + resolved.orderId
+        window.location.href = "confirmation.html?orderId=" + resolved.orderId
     }
 
     function getProductsId() {
@@ -150,7 +149,7 @@ function start() {
 
             })
             .catch(function (error) {
-                console.log(error)
+                console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message)
 
             })
     }
