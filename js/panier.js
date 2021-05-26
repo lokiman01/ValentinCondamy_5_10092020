@@ -9,8 +9,8 @@ function main() {
     let basketArray = JSON.parse(basket);
     // lien HTML
     if (!basketArray || basketArray.length == 0 ) {
-        document.querySelector("#formCtnr").style.display = "none"
-
+        document.querySelector("#formCtnr").style.display = "none" 
+        
     }
 
     let table = document.getElementById("table");
@@ -90,11 +90,19 @@ function main() {
             console.log(basketArray)
             localStorage.setItem("basket", dataJson_);
             
+            if (basketArray.length == 0) {
+                document.querySelector("#formCtnr").style.display = "none" 
+                document.querySelector("#table").style.display = "none" 
+                                
+            }
             
 
         })
     }
 
+
+
+    
     let totalRow = document.createElement("tr");
     let cellTotal = document.createElement("td");
     let cellTotalTexte = document.createTextNode("Total: " + total + " €");
@@ -111,6 +119,25 @@ function main() {
     tbl.setAttribute("border", "1");
 
     let formData = document.querySelector("form");
+    function checkformfieldsorvalid(formFields) {
+       
+        if (formFields.firstName.trim().length < 2 )  {
+            return false
+        }
+        if (formFields.lastName.trim().length < 2 )  {
+            return false
+        }
+        if (formFields.city.trim().length < 2 )  {
+            return false
+        }
+        if (formFields.address.trim().length < 2 )  {
+            return false
+        }
+        if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(formFields.email))  {
+            return false
+        }
+        return true
+    }
 
     formData.addEventListener("submit", getForm);
     async function getForm(e) {
@@ -122,13 +149,17 @@ function main() {
             address: document.getElementById("address").value,
             email: document.getElementById("email").value,
         }
-
+        const allFieldsAreValid =  checkformfieldsorvalid(contact)
+        if (!allFieldsAreValid) {
+            alert("veillez fagvsdfgsgqs")
+            return
+        }
         let products = getProductsId()
 
         const bodyorder = { contact: contact, products: products }
 
         const resolved = await sendOrder(bodyorder)
-        window.location.href = "confirmation.html?orderId=" + resolved.orderId + total 
+        window.location.href = "confirmation.html?orderId=" + resolved.orderId + "&orderPrice=" + total  
     }
     function getProductsId() {
         const output = [];

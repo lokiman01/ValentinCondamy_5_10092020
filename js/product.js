@@ -53,12 +53,12 @@ async function displayCamerasDetails() {
     });
     const addCamera = document.getElementById("panierButton")
     addCamera.addEventListener("click", function addEventListener () {
-        let panierStorage = localStorage.getItem("basket");
-        if (panierStorage) {
-            panierStorage = JSON.parse(panierStorage);
+        let basketStorage = localStorage.getItem("basket");
+        if (basketStorage) {
+            basketStorage = JSON.parse(basketStorage);
         }
         else {
-            panierStorage = [];
+            basketStorage = [];
         }
         const data = {
             lenses: document.getElementById("chosenLense").value,
@@ -67,8 +67,8 @@ async function displayCamerasDetails() {
             quantity: document.getElementById("qteButton").value,
             _id: cameraDetail._id,
         }
-        panierStorage.push(data)
-        let dataJson = JSON.stringify(panierStorage)
+        basketStorage.push(data)
+        let dataJson = JSON.stringify(basketStorage)
         localStorage.setItem("basket",dataJson);
     })
 }
