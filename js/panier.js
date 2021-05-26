@@ -1,7 +1,7 @@
 
-start()
+main()
 
-function start() {
+function main() {
 
     // Récupération de l'objet contenu dans localStorage
     let basket = localStorage.getItem("basket");
@@ -74,17 +74,12 @@ function start() {
 
         tblBody.appendChild(row);
 
-        cellButton.addEventListener("click", function () {
+        cellButton.addEventListener("click", function addEventListenerIndexButton() {
             
             const indextodelet = basketArray.findIndex((product) => product.id_ == row.dataset.id_)
             const priceDell = basketArray[indextodelet].price * basketArray[indextodelet].quantity / 100;
             console.log(total, priceDell)
             total -= priceDell
-
-            if (total == 0 ){
-                document.querySelector("#formCtnr").style.display = "none"
-                
-            }
 
             cellTotal.innerHTML = "Total: " + total + " €";
 
@@ -118,7 +113,6 @@ function start() {
     let formData = document.querySelector("form");
 
     formData.addEventListener("submit", getForm);
-
     async function getForm(e) {
         e.preventDefault();
         let contact = {
@@ -134,9 +128,8 @@ function start() {
         const bodyorder = { contact: contact, products: products }
 
         const resolved = await sendOrder(bodyorder)
-        window.location.href = "confirmation.html?orderId=" + resolved.orderId
+        window.location.href = "confirmation.html?orderId=" + resolved.orderId + total 
     }
-
     function getProductsId() {
         const output = [];
         basketArray.forEach(element => {

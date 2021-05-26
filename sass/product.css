@@ -28,7 +28,6 @@ body {
   position: absolute;
   right: 40px;
   top: 40px;
-  font-color: black;
 }
 
 .picture {
@@ -108,6 +107,39 @@ body {
 .QuantityLabel {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+footer {
+  background: #F3E9F1;
+  color: black;
+  padding: 15px 0px 15px 0px;
+  min-width: 2px;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  font-size: 15px;
+  margin-top: 30px;
+}
+
+.footertitle {
+  text-decoration: none;
+  color: black;
+  font-size: 1.5rem;
+  font-family: "Shrikhand", sans-serif;
+  margin-left: 1rem;
+  font-size: 24px;
+}
+
+.footertxt {
+  margin-left: 1rem;
+}
+
+.footericon {
+  padding-right: 1rem;
+}
+
+.footerlink {
+  text-decoration: none;
+  color: black;
 }
 
 @media all and (max-width: 355px) {

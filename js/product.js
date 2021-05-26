@@ -4,8 +4,6 @@ main()
 async function main() {
     displayCamerasDetails();
 }
-
-
 function getCamera(id) {
 
     return fetch(`http://localhost:3000/api/cameras/${id}`)
@@ -54,7 +52,7 @@ async function displayCamerasDetails() {
             .appendChild(chosenOption).innerHTML = camera;
     });
     const addCamera = document.getElementById("panierButton")
-    addCamera.addEventListener("click", function () {
+    addCamera.addEventListener("click", function addEventListener () {
         let panierStorage = localStorage.getItem("basket");
         if (panierStorage) {
             panierStorage = JSON.parse(panierStorage);
