@@ -37,6 +37,7 @@ body {
   margin-bottom: 10px;
   font-size: 30px;
   padding-top: 15px;
+  min-height: 100%;
 }
 
 .logo {
@@ -114,8 +115,17 @@ td {
   text-align: right;
 }
 
-.titleTexte {
-  margin: auto;
+.emptyBasketName {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 30px;
 }
 
 .textaera {
@@ -158,15 +168,18 @@ td {
   border: 1px solid black;
 }
 
+#space {
+  height: 400px;
+}
+
 footer {
   background: #F3E9F1;
   color: black;
-  padding: 15px 0px 15px 0px;
-  min-width: 2px;
   font-family: "Roboto", sans-serif;
   text-decoration: none;
   font-size: 15px;
-  margin-top: 30px;
+  bottom: 0;
+  width: 100%;
 }
 
 .footertitle {
@@ -189,5 +202,74 @@ footer {
 .footerlink {
   text-decoration: none;
   color: black;
+}
+
+@media all and (max-width: 1000px) {
+  td {
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: white;
+  }
+  .textaera {
+    font: 1em sans-serif;
+    width: 480px;
+    border: 1px solid black;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media all and (max-width: 560px) {
+  .form {
+    width: 300px;
+    padding: 1em;
+    border: 1px solid black;
+    background-color: #F3E9F1;
+    margin-bottom: 30px;
+    -webkit-box-shadow: 0px 5px 5px lightgrey;
+            box-shadow: 0px 5px 5px lightgrey;
+  }
+  .textaera {
+    width: 100%;
+    font: 1em sans-serif;
+    border: 1px solid black;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  td {
+    font-size: 15px;
+    background-color: white;
+  }
+}
+
+@media all and (max-width: 360px) {
+  .form {
+    width: 190px;
+    padding: 1em;
+    border: 1px solid black;
+    background-color: #F3E9F1;
+    margin-bottom: 30px;
+    -webkit-box-shadow: 0px 5px 5px lightgrey;
+            box-shadow: 0px 5px 5px lightgrey;
+  }
+  table {
+    padding: 1px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }
 /*# sourceMappingURL=panier.css.map */

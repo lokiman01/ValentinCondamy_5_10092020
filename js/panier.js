@@ -74,6 +74,8 @@ function main() {
 
         tblBody.appendChild(row);
 
+        
+
         cellButton.addEventListener("click", function addEventListenerIndexButton() {
             
             const indextodelet = basketArray.findIndex((product) => product.id_ == row.dataset.id_)
@@ -93,6 +95,14 @@ function main() {
             if (basketArray.length == 0) {
                 document.querySelector("#formCtnr").style.display = "none" 
                 document.querySelector("#table").style.display = "none" 
+                let emptyBasketBox = document.querySelector("#space");
+                let emptyBasketName= document.createElement("div");
+                let emptyBasketTexte = document.createTextNode("Votre Panier est vide ..."); 
+                
+                emptyBasketName.appendChild(emptyBasketTexte);
+                emptyBasketBox.appendChild(emptyBasketName);
+                emptyBasketName.setAttribute("class","emptyBasketName")
+
                                 
             }
             
@@ -119,7 +129,7 @@ function main() {
     tbl.setAttribute("border", "1");
 
     let formData = document.querySelector("form");
-    function checkformfieldsorvalid(formFields) {
+    function checkFormFieldAreValid(formFields) {
        
         if (formFields.firstName.trim().length < 2 )  {
             return false
@@ -149,9 +159,9 @@ function main() {
             address: document.getElementById("address").value,
             email: document.getElementById("email").value,
         }
-        const allFieldsAreValid =  checkformfieldsorvalid(contact)
+        const allFieldsAreValid =  checkFormFieldAreValid(contact)
         if (!allFieldsAreValid) {
-            alert("veillez fagvsdfgsgqs")
+            alert("Champs incorrects: veuillez renseigner un formulaire valide")
             return
         }
         let products = getProductsId()

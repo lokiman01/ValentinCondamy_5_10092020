@@ -6,6 +6,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   font-family: "Roboto", sans-serif;
+  min-height: 100%;
 }
 
 .titleCtnr {
@@ -74,7 +75,7 @@ footer {
   font-family: "Roboto", sans-serif;
   text-decoration: none;
   font-size: 15px;
-  margin-bottom: 0px;
+  width: 100%;
 }
 
 .footertitle {
@@ -97,5 +98,19 @@ footer {
 .footerlink {
   text-decoration: none;
   color: black;
+}
+
+#orderPriceBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 35px;
+  padding-top: 15px;
 }
 /*# sourceMappingURL=confirmation.css.map */

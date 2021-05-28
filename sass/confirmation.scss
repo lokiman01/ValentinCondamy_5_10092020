@@ -3,6 +3,7 @@ body{
     justify-content: center;
     align-items: center;
     font-family: "Roboto", sans-serif;
+    min-height: 100%;
 }
 
 .titleCtnr{
@@ -59,7 +60,7 @@ footer {
     font-family: "Roboto", sans-serif;
     text-decoration: none;
     font-size: 15px;
-    margin-bottom: 0px;
+    width: 100%;
     
 }
 
@@ -83,4 +84,12 @@ footer {
 .footerlink {
     text-decoration: none;
     color:black
+}
+
+#orderPriceBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    padding-top: 15px;
 }

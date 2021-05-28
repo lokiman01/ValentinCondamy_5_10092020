@@ -88,6 +88,8 @@ footer {
   text-decoration: none;
   font-size: 15px;
   margin-top: 120px;
+  bottom: 0;
+  width: 100%;
 }
 
 .footertitle {
